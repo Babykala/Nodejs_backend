@@ -27,7 +27,8 @@ const getData=async(req,res)=>{
 app.use(cors())
 app.use('/getproducts',getData)
 
-const port=process.env.PORT||5000
+const port=process.env.PORT||8080
+
 app.listen(port, host, ()=> {
     console.log(`Server running at http://${host}:${process.env.PORT}`);
     main();
