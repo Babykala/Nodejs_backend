@@ -1,6 +1,4 @@
-const http = require('http');
 const express = require('express');
-const host = 'localhost'
 const {amazon} = require('./controller/scrapper');
 const productModel=require('./model/product')
 const mongo=require('./controller/connect');
@@ -29,7 +27,7 @@ app.use('/get',async(req,res,next)=>{
 
 const port=process.env.PORT||8080
 
-app.listen(port, host, ()=> {
-    console.log(`Server running at http://${host}:${process.env.PORT}`);
+app.listen(port,()=> {
+    console.log(`Server running at ${process.env.PORT}`);
     main();
 })
