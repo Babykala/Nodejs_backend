@@ -8,24 +8,24 @@ const cors=require('cors');
 require('dotenv').config();
 const app = express();
 
+app.use(express.json()); 
 
 const main = () =>{
     console.log('Running amazon');
     amazon();
 }
 
-const getData=async(req,res)=>{
+app.use(cors())
+
+app.use('/get',async(req,res,next)=>{
     try{
-        var data=await productModel.find();
-        res.send(data);
+        const product=await productModel.find();
+        return res.send(product);
         
     }catch(err){
-        console.log(err)
+        console.log(err);
     }
-}
-
-app.use(cors())
-app.use('/getproducts',getData)
+})
 
 const port=process.env.PORT||8080
 
