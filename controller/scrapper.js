@@ -11,7 +11,7 @@ module.exports = {
             
             amazonHeader = async () =>{
                 
-                    const result = await request.get('https://www.amazon.in/s?k='+'latest mobile phones');
+                    const result = await request.get('https://www.amazon.in/s?k='+'latest electronic products');
                     const $ = await cheerio.load(result);
                  
                     $('.s-asin').each((i,el)=> {
